@@ -23,7 +23,8 @@ function generateRandomNumber() {
 }
 
 // runs one time when the server starts
-// let randomNumber = generateRandomNumber();
+let randomNumber = generateRandomNumber();
+
 app.get('/reset', (req, res) => {
   randomNumber = generateRandomNumber();
   res.send(200);

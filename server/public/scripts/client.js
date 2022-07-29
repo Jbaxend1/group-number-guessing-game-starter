@@ -9,6 +9,7 @@ function handleReady() {
 
 function getGuesses(){
   console.log('in getGuesses');
+  $('input').val('');
   
   $.ajax({
     type: 'GET',
