@@ -19,10 +19,11 @@ const guessArray = [
 ]
 
 function generateRandomNumber() {
-  return 8; // TODO: random number
+  return Math.floor(Math.random() * (1 + 25 - 1) + 1);
 }
+
 // runs one time when the server starts
-let randomNumber = generateRandomNumber();
+// let randomNumber = generateRandomNumber();
 app.get('/reset', (req, res) => {
   randomNumber = generateRandomNumber();
   res.send(200);
@@ -35,4 +36,5 @@ app.get('/guesses', (req, res) =>{
 
 app.listen(PORT, () => {
   console.log ('Server is running on port', PORT)
+  console.log (generateRandomNumber());
 })
