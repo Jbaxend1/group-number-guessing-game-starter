@@ -34,6 +34,17 @@ app.get('/guesses', (req, res) =>{
   res.send(guessArray);
 })
 
+app.post('/guesses', (req, res) => {
+  const guess = req.body; //body of the request data property in sendGuessesToServer
+  console.log(req.body);
+  guessArray.push(guess);
+  res.send(guess);
+  res.sendStatus(200);
+
+})
+
+
+
 app.listen(PORT, () => {
   console.log ('Server is running on port', PORT)
   console.log (generateRandomNumber());

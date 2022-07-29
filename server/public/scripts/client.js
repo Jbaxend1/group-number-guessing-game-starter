@@ -3,7 +3,7 @@ $(document).ready(handleReady);
 function handleReady() {
   console.log("jquery is loaded!")
 
-  // $('#submit-guess').on('click',);
+  $('#submit-guess').on('click', sendGuessesToServer);
   getGuesses();
 }
 
@@ -29,4 +29,20 @@ function getGuesses(){
       `)
     }
   })
+}
+
+function sendGuessesToServer() {
+  $.ajax({
+    type: 'POST',
+    url: '/guesses',
+    data: {
+      p1: $('#player-one').val(),
+      p2: $('#player-two').val(),
+      p3: $('#player-three').val(),
+      p4: $('#player-four').val(),
+
+  }
+  }).then(function(response) {
+    getGuesses();
+  }); // .catch goes here 
 }
