@@ -44,6 +44,8 @@ function sendGuessesToServer() {
 
   }
   }).then(function(response) {
+    console.log(response);
+    alert(response);
     getGuesses();
   }); // .catch goes here 
 }

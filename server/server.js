@@ -39,8 +39,32 @@ app.post('/guesses', (req, res) => {
   const guess = req.body; //body of the request data property in sendGuessesToServer
   console.log(req.body);
   guessArray.push(guess);
-  res.send(guess);
-  res.sendStatus(200);
+  
+  let result = '';
+  // let result = { message: 'no winner' }
+  if(guess.p1 === randomNumber) {
+    result = 'YOU GOT IT, Player 1';
+    // result.message = 'player 1 correct!';
+  //} else if (guess.p1 < randomNumber) {
+    // result.p1 = 'higher';
+  //} else {
+    // result.p1 = 'lower';
+  }
+  if(guess.p2 === randomNumber) {
+    result = 'YOU GOT IT, Player 2';
+  }
+  if(guess.p3 === randomNumber) {
+    result = 'YOU GOT IT, Player 3';
+  }
+  if(guess.p4 === randomNumber) {
+    result = 'YOU GOT IT, Player 4';
+  }
+  else{
+    result = 'no winner';
+  };
+  // res.send(result);
+  // res.send({result: result});
+  res.send(result);
 
 })
 
